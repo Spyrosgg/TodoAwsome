@@ -1,0 +1,36 @@
+:root{
+
+  --dark: #14313e;
+  --red: #ba3e46;
+  --orage: #f3695a;
+  --yellow: #f3ac3c;
+  --white: #FFFFFF;
+  
+}
+
+html {
+  background-color: var(--dark);
+  color: var(--white);
+}
+header {
+  display: flex;
+  flex-direction: row;
+  background-color: var(--red);
+}
+h2 {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+ul {
+  display: flex;
+  flex-direction: row;
+}
+ul > li {
+  margin-left: 20px;
+}
+
+.todo {
+  border: 1px dashed var(--yellow);
+  font-size: 1.2rem;
+}
+
