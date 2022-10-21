@@ -9,11 +9,10 @@ const inbox = [];
 
 
 
-
-
 //injects the objs into main #content---------
 objArr.forEach((el) => {
   let todoObj = todoFactory(el);
+  inbox.push(todoObj);
   console.log(todoObj);
 
   let todoDiv = createElement("div", "todo");
@@ -21,9 +20,10 @@ objArr.forEach((el) => {
   content.appendChild(todo);
 });
 
+console.log(inbox);
 
-//---------------------------------------------
 
+// my Factories
 //todo object factory
 function todoFactory([title, description, dueDate, priority, notes]) {
   const date = new Date();
@@ -39,6 +39,8 @@ function todoFactory([title, description, dueDate, priority, notes]) {
   };
 }
 
+//Functions 
+//
 function renderObj (element,input){
     
     if (typeof input === "object") {
