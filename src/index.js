@@ -5,23 +5,26 @@ import dataTestIn from "./pages/testData";
 const objArr = dataTestIn();
 
 const content = document.querySelector("#content");
-const inbox = [];
-const projects = {};
+const projects = {
+  inbox: []
+};
 
 //injects the objs into main #content---------
 objArr.forEach((el) => {
   let todoObj = todoFactory(el);
-  inbox.push(todoObj);
-  console.log(todoObj);
+  projects.inbox.push(todoObj);
+  //console.log(todoObj);
 
   let todoDiv = createElement("div", "todo");
   let todo = renderObj(todoDiv, todoObj);
   content.appendChild(todo);
 });
 
-projectStorage("cleaning");
-projects["cleaning"] = 
-console.log(inbox);
+projectStorage("Cleaning");
+projectStorage("Study");
+projectStorage("Work");
+
+
 console.log(projects);
 
 // my Factories
@@ -44,10 +47,8 @@ function todoFactory([title, description, dueDate, priority, notes]) {
 
 // Poject Factory
 function projectStorage(projectStorage) {
-    projectStorage = [];
-  return projectStorage;
-  
-};
+  projects[projectStorage] = [];
+}
 
 //Functions
 //
