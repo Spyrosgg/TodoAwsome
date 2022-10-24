@@ -1,18 +1,29 @@
 import "./style.css";
 import dataTestIn from "./pages/testData";
 
-//testing data manually entered
-const objArr = dataTestIn();
-
 const content = document.querySelector("#content");
-const projects = {
+const projectsObj = {
   inbox: []
 };
+
+
+//===testing data manually entered===
+const objArr = dataTestIn();
+projectStorage("Cleaning");
+projectStorage("Study");
+projectStorage("Work");
+//====================================
+
+//Interface Render
+const addBtn = document.createElement('button');
+addBtn.classList.add('addBtn');
+addBtn.textContent = 'Add';
+content.appendChild(addBtn);
 
 //injects the objs into main #content---------
 objArr.forEach((el) => {
   let todoObj = todoFactory(el);
-  projects.inbox.push(todoObj);
+  projectsObj.inbox.push(todoObj);
   //console.log(todoObj);
 
   let todoDiv = createElement("div", "todo");
@@ -20,12 +31,7 @@ objArr.forEach((el) => {
   content.appendChild(todo);
 });
 
-projectStorage("Cleaning");
-projectStorage("Study");
-projectStorage("Work");
 
-
-console.log(projects);
 
 // my Factories
 //todo object factory
@@ -46,8 +52,8 @@ function todoFactory([title, description, dueDate, priority, notes]) {
 }
 
 // Poject Factory
-function projectStorage(projectStorage) {
-  projects[projectStorage] = [];
+function projectStorage(projectName) {
+  projectsObj[projectName] = [];
 }
 
 //Functions
